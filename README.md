@@ -1,2 +1,2 @@
-# Porfolio
- A porfolio
+# Portfolio
+ A portfolio for me 
