@@ -12,11 +12,13 @@
     <title>Portfólio</title>
 </head>
 <body>
+    <script>
+        fetch('https://pokeapi.co/api/v2/pokemon/charmander')
+        .then(response => response.text())
+        .then(text => console.log(text))
+    </script>
     <main>
         <nav id="navegacao" class="caixa-padrao">
-            <div>
-            </div>
-
             <ul>
                 <li>
                     <a href="#">HOME</a>
@@ -51,11 +53,48 @@
         </div>
 
         <div id="sobre" class="caixa-padrao">
+            <section id="sobre-bio">
+                <h3>Sobre mim</h3>
+                <p>Me chamo Bernardo e aos 19 anos entrei no universo da programação, mergulhando em Hackathons universitárias. Desde então, programar tornou-se não só um hobby, mas minha carreira. Iniciei com JavaScript, explorando React, Node e Ionic, mas minha experiência profissional reside no ecossistema .NET, especialmente em C#.</p>
+            </section>
 
+            <section id="sobre-tecnologia">
+                <h3>Tecnologias que já experimentei</h3>
+                <div id="tecnologias-container">
+                    <div class="tecnologia-container">
+                        <div class="tecnologia-icone-container">
+                            <img class="tecnologia-icone" src="./assets/images/csharpe.svg"/>
+                        </div>
+                        <span class="tecnologia-nome">C# e .NET</span>
+                    </div>
+    
+                    <div class="tecnologia-container">
+                        <div class="tecnologia-icone-container">
+                            <img class="tecnologia-icone" src="./assets/images/react.svg"/>
+                        </div>
+                        <span class="tecnologia-nome">React.JS</span>
+                    </div>
+    
+                    <div class="tecnologia-container">
+                        <div class="tecnologia-icone-container">
+                            <img class="tecnologia-icone" src="./assets/images/node.svg"/>
+                        </div>
+                        <span class="tecnologia-nome">Node.JS</span>
+                    </div>
+    
+                    <div class="tecnologia-container">
+                        <div class="tecnologia-icone-container">
+                            <img class="tecnologia-icone" src="./assets/images/ionic.svg"/>
+                        </div>
+                        <span class="tecnologia-nome">Ionic</span>
+                    </div>
+                </div>
+                
+            </section>
         </div>
 
         <div id="projetos" class="caixa-padrao">
-
+            <h3>Projetos implementados</h3>
         </div>
     </main>
 
