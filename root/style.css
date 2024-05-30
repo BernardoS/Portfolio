@@ -1,6 +1,18 @@
+:root{
+    --cor-texto-principal:#BF773D;
+    --cor-texto-secundario:#0D0507;
+    --cor-fundo-site:#000000;
+    --cor-fundo-caixa:#f6f6f6;
+    --projeto-item-fundo:#F3C7A0;
+    --projeto-item-nome:#C47937;
+    --projeto-item-descricao:#FFFFFF;
+    --projeto-item-link:#4A2E15;
+}
+
 body{
-    background-color: #343545;
+    background-color: var(--cor-fundo-site);
     font-family:"Koulen", sans-serif;
+    background-image:url(./assets/images/icons-background.png);
 }
 main{
     display: flex;
@@ -9,10 +21,11 @@ main{
     align-items: center;
 }
 .caixa-padrao{
-    background-color: rgba(112, 114, 135, 0.45);
-    width: 1130px;
-    border-radius: 10px;
-    margin-block: 20px;
+    background-color: var(--cor-fundo-caixa);
+    max-width: 1200px;
+    width:80%;
+    border-radius: 3px;
+    margin-block: 5px;
     box-sizing:border-box;
 }
 #navegacao{
@@ -50,7 +63,7 @@ main{
 #navegacao ul a{
     text-decoration:none;
     line-height:unset;
-    color:#69BDD0;
+    color:var(--cor-texto-principal);
     font-size:20px;
     transition:0.5s;
 }
@@ -72,12 +85,12 @@ main{
 
 #apresentacao-texto h2{
     font-size:24px;
-    color:#FFF;
+    color:;
 }
 
 #apresentacao-texto h1{
     font-size:64px;
-    color:#69BDD0;
+    color:var(--cor-texto-principal);
     margin:unset;
 }
 
@@ -101,12 +114,12 @@ main{
 #sobre h3, #projetos h3{
     font-weight:bold;
     font-size:24px;
-    color:#94E3F3;
+    color:var(--cor-texto-principal);
 }
 #sobre p{
     font-weight:bold;
     font-size:24px;
-    color:#FFFFFF;
+    color:var(--cor-texto-secundario);
 }
 
 #tecnologias-container{
@@ -120,7 +133,7 @@ main{
     align-items:center;
 }
 .tecnologia-icone-container{
-    background-color:#0D0507;
+    background-color:var(--cor-texto-secundario);
     height:165px;
     width:165px;
     padding:20px;
@@ -132,7 +145,74 @@ main{
 }
 .tecnologia-nome{
     font-size:24px;
-    color:#94E3F3;
+    color:var(--cor-texto-principal);
     font-weight:bold;
     line-height:3;
+}
+
+#projetos-repositorios{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: start;
+    gap: 15px 15px;
+}
+
+.projeto-item{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+    min-height: 200px;
+    background-color: var(--projeto-item-fundo);
+    border-radius: 5px;
+    justify-content: space-between;
+    overflow:hidden;
+    box-shadow: 5px 5px 30px rgba(10, 0, 0, 0.09);
+}
+.projeto-item h2{
+    font-weight:bold;
+    font-size:20px;
+    font-family:'Montserrat', sans-serif;
+    color:var(--projeto-item-nome);
+}
+
+#projetos .projeto-item h3{
+    font-weight:bold;
+    font-size:16px;
+    font-family:'Montserrat', sans-serif;
+    color:var(--projeto-item-descricao);
+}
+
+.projeto-item a{
+    font-weight:bold;
+    font-size:16px;
+    font-family:'Montserrat', sans-serif;
+    color:var(--projeto-item-link);
+    text-decoration:none;
+}
+
+.projeto-item .projeto-item-header{
+    height: 180px;
+    overflow: hidden;
+}
+
+.projeto-item .projeto-item-header img{
+    width:100%;
+}
+
+.projeto-item .projeto-item-body{
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.projeto-item .projeto-item-body h2, .projeto-item .projeto-item-body h3{
+    margin:unset;
+}
+
+.projeto-item .projeto-item-footer{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
 }

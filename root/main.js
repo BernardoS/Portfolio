@@ -21,15 +21,26 @@ const listaDadosRepositorio = [
     
 const nomeDoUsuario = "bernardos";
 
-function recuperarRepositorios(nomeDoUsuario,listaRepositorio){
+function renderizarRepositorios(nomeDoUsuario,listaRepositorio){
 
     const listaNomeRepositorios = listaRepositorio.map(repo => repo.nomeGitHub);
 
     fetch(`https://api.github.com/users/${nomeDoUsuario}/repos`)
         .then(resposta => resposta.json())
         .then(repositorios => {
-            const repositoriosSelecionados = repositorios.filter(repository => listaNomeRepositorios.includes(repository.name));
-            criarCardRepositorio(repositoriosSelecionados.name,repositoriosSelecionados.description,repositoriosSelecionados.languages_url);
+            const repositoriosSelecionados = repositorios.filter(repositorio => listaNomeRepositorios.includes(repositorio.name));
+
+            let divDeRepositorios = document.getElementById("projetos-repositorios");
+
+            var listaCards = "";
+
+            repositoriosSelecionados.forEach(repositorio => {
+                listaCards += criarCardRepositorio(repositorio.name, repositorio.description, repositorio.languages_url, repositorio.url);
+            });
+            
+            divDeRepositorios.innerHTML = listaCards;
+        
+
         })
         .catch( error => {
             console.log(error);
@@ -39,11 +50,13 @@ function recuperarRepositorios(nomeDoUsuario,listaRepositorio){
 }
 
 
-function criarCardRepositorio(nome,descricao,tecnologiasUrl){
+function criarCardRepositorio(nome,descricao,tecnologiasUrl,repositorioUrl){
     //Criar o componente HTML do card
+    var card = `<div class="projeto-item"><div class="projeto-item-header"><img src="./assets/images/projetos/${nome}.png" alt="Imagem do projeto: ${nome}" /> </div><div class="projeto-item-body"><h2>${nome}</h2><br/><h3>${descricao}</h3></div><div class="projeto-item-footer"><a href="${repositorioUrl}">Ver mais</a></div></div>`;
     //Recuperar as linguagens utilizadas
     //Recuperar imagem associada
-    //Retornar Card com dados e lingagens
+    //Retornar Card com dados e lingagens>
+    return card;
 }
 
-recuperarRepositorios(nomeDoUsuario,listaDadosRepositorio);
+renderizarRepositorios(nomeDoUsuario,listaDadosRepositorio);
